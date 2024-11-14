@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile Form</title>
+<link rel="stylesheet" href="profile.css">  <!--Link to css stylesheet-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+
+  <!--Header with navigation bar-->
+    <header>
+        <a href="Home.html"><img src="logo.png" class="img" alt="LOGO"></a> 
+        <nav class="navlist">
+            <a href="Home.html">HOME</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="shop.html">SHOP</a>
+            <a href="profile.html">USER PROFILE</a>
+            <a href="feedback.html" target="_blank">FEEDBACK</a>
+            <a href="sitemap.html">SITE MAP</a>
+            <a href="team.html">ABOUT US</a>        
+        </nav>
+    </header>
+
+<main>
+<!--main content of the form -->
+
+    <div class="container">
+        <h1>User <span style="color: #07790d;">Profile</span></h1>
+        <hr>
+        <form id="profile-form" action="/submit_profile" method="post">
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar">0%</div>
+          </div>
+
+      <!-- Personal Details side -->
+      <fieldset id="step1">
+        <legend><b>Step 1 | Personal Details</b></legend>
+        <label for="full_name">Name:</label>
+        <input type="text" id="full_name" name="full_name" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected hidden>Please select an option</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="profile-picture">Profile Picture:</label>
+        <input type="file" id="profile-picture" name="profile-picture" accept="image/*" multiple>
+        <img id="profile-picture-preview" src="#" alt="Profile-picture Preview"><br><br>
+
+        <button type="button" class="next-btn">Next</button>
+      </fieldset><br><br>
+
+      <!-- Preferences and Availability slide-->
+      <fieldset id="step2" style="display:none">
+        <legend><b>Step 2 | Preferences and Availability</b></legend>
+        <label for="availability">What times of the day are you usually available :</label>
+        <select id="availability" name="availability" required>
+          <option value="" disabled selected>Select your option</option> 
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+        </select><br>
+  
+        <label for="interest">What are your main interests or hobbies:</label>
+        <input type="text" id="interest" name="interest" required>
+  
+        <label>Preferred Volunteer Activities: (Select all that apply)</label>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li><input type="checkbox" id="wildlife" name="preference" value="wildlife"><label for="wildlife">Wildlife conservation</label></li>
+          <li><input type="checkbox" id="planting" name="preference" value="planting"><label for="planting">Tree planting</label></li>
+          <li><input type="checkbox" id="com" name="preference" value="com"><label for="com">Community education</label></li>
+          <li><input type="checkbox" id="other" name="preference" value="other"><label for="other">Other</label></li>
+        </ul>
+        
+        <button type="button" class="prev-btn">Previous</button>
+        <button type="button" class="next-btn">Next</button>
+      </fieldset><br><br>
+
+      <!-- Contact slide -->
+      <fieldset id="step3" style="display: none;">
+        <legend><b>Step 3 | Contact</b></legend>
+        <label for="incase">Who should we contact in case of an emergency:</label>
+        <select id="incase" name="incase" required>
+          <option value="" disabled selected>Select your option</option>
+          <option value="name">Name</option>
+          <option value="relationship">Relationship</option>
+          <option value="phone">Phone number</option>
+        </select>
+        <br>
+        
+        <label for="docs">How do you prefer to receive documents:</label>
+        <select id="docs" name="docs" required>
+          <option value="" disabled selected>Select your option</option>
+          <option value="email">Email</option>
+          <option value="postal">Postal mail</option>
+          <option value="inperson">In-person</option>
+        </select>
+
+        <label for="comments">Any additional comments or questions?:</label>
+        <input type="text" id="comments" name="comments">
+
+        <label for="language">Preferred Language for Communication:</label>
+        <select id="language" name="language" required>
+          <option value="" disabled selected>Select your option</option>
+          <option value="english">English</option>
+          <option value="sinhala">Sinhala</option>
+          <option value="tamil">Tamil</option>
+        </select>
+
+        <button type="button" class="prev-btn">Previous</button>
+        <input type="submit" id="submit-btn" value="Submit">
+        <button id="generate-output-btn" class="generate-output-btn">Generate User Outputs</button>
+      </fieldset><br>
+      </form>
+
+      <!-- Generate Output -->
+      <div class="output-container" id="output-container"></div>
+      <div id="output-text" class="output-text"></div>
+      </div>
+    </main>
+    
+      <!-- Footer -->
+      <footer>
+        <div class="footer">
+            <ul class="footerlist">
+            <li><a href="pageeditor_stu_1.html">Isuru Dissanayake</a></li>
+            <li><a href="pageeditor_stu_2.html">Tharana Bopearachchi</a></li>
+            <li><a href="pageeditor_stu_3.html">Akila Senanayake</a></li>
+            <li><a href="pageeditor_stu_4.html">Pasindu Gamage</a></li>
+            </ul>
+        </div>
+    </footer>
+
+<!--Link to javascript sheet-->
+<script src="profile.js"></script>     
+</body>
+</html>

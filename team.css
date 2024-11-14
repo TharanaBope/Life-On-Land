@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #023711;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* navigation style */
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px 2%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    color: rgb(42, 78, 109);
+}
+
+.navlist {
+    display: flex;
+    margin-left: auto;
+}
+
+.navlist a {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    margin-left: 65px;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 3px solid transparent;
+    transition: all 0.55s ease;
+}
+
+.navlist a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.navlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.img {
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+}
+
+/* additional page styles */
+
+.circle-top {
+    width: clamp(25rem, 30vw, 31.25rem);
+    position: absolute;
+    top: 3em;
+    left: -8em;
+    height: clamp(25rem, 30vw, 31.25rem);
+    background: #0b8469;
+    background: radial-gradient(circle, #0c7f368f 0%, #00458e00 60%, #ffffff00 100%);
+    border-radius: 50%;
+}
+
+.circle-bottom {
+    width: clamp(25rem, 30vw, 31.25rem);
+    position: absolute;
+    bottom: -5em;
+    right: -8em;
+    height: clamp(25rem, 30vw, 31.25rem);
+    background: #038f22;
+    background: radial-gradient(circle, #09903d8f 0%, #00458e00 65%, #ffffff00 100%);
+    border-radius: 50%;
+}
+
+.header-content {
+    background-image: url('sample2.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 180px 0;
+}
+
+.header-content span {
+    font-size: 60px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.member {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.member:hover {
+    transform: translateY(-10px);
+}
+
+.member-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.member-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.member:hover .member-info {
+    opacity: 1;
+}
+
+/* footer style */
+
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footerlist {
+    width: 94%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 25px 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .footerlist a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.55s ease;
+    position: relative;
+  }
+  
+  .footerlist a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  
+  .footerlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  .footerlist a:hover {
+    color: white;
+  }

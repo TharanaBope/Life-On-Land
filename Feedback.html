@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        
+        <title>Life on land</title>
+        <meta charset="utf-8">
+        <meta name="viewpoint" content="width=device-width">
+
+        <link rel="icon" href="Pic&Vids/Favicon/1.svg.png" type="image/svg+xml">
+        <link rel="stylesheet" href="Feedback.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Google Font Links-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>
+            <a href="Home.html"><img src="Pic&Vids/Logo/Life on Land logo.png" class="img" alt="LOGO"></a>
+            <nav class="navlist">
+                <a href="Home.html" >HOME</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="shop.html">SHOP</a>
+                <a href="profile.html">USER PROFILE</a>
+                <a href="Feedback.html" class = "active">FEEDBACK</a>
+                <a href="sitemap.html">SITE MAP</a>
+                <a href="team.html">ABOUT US</a>        
+            </nav>
+        </header>
+        
+        <main>
+
+
+            <div class="form">
+                <form id="form" action="mailto:tharanabope30@gmail.com" method="post" enctype="text/plain">
+                    <div class="heading"><h1>Leave us your feedback...</h1></div>
+                    <div class="input-control">
+                        <label for="username">Name</label>
+                        <input id="username" name="username" type="text" placeholder="Enter your name.">
+                        <div id="nameError" class="error"></div>
+                    </div>
+        
+                    <br>
+                    <div class="input-control">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="text" placeholder="Enter your E-mail.">
+                        <div id="mailError" class="error"></div>
+                    </div>
+        
+                    <br>
+
+                    <div class="container-1">
+                        
+                        <label>Was this is your first time visting ?</label><br>
+                        
+                          <input type="radio" name="first visit" >
+                          <label for="yes">Yes</label>
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                          <input type="radio" name="first visit" >
+                          <label for="no">No</label>
+                        
+
+
+                    </div>
+                    <br>
+                    <div class="container-2">
+                        
+                        <div class="container">
+                            <label>Was the website innovative and user-friendly ?</label><br>
+                            <input type="radio" name="user-friendly" id="yes" value="yes" > 
+                            <label class="labelradio">
+                              Yes
+                          </label>
+
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="radio" name="user-friendly" id="no" value="no" >
+                          <label class="labelradio">
+                               No
+                          </label>
+                          <br>
+                          <br>
+                          
+                          <textarea id="reasonTextarea" name="reason" placeholder="Please provide a reason (if 'No' is selected)" rows="4" cols="50"></textarea>
+                          
+                        </div>
+
+
+                    </div>
+                    
+                    <br>
+                    <br>
+                    <label for="stars">Rate Us</label>
+                    <div class="rating">
+                        <input type="number" name="rating" hidden id="stars">
+                        <i class='bx bx-star star' style="--i: 0;"></i>
+                        <i class='bx bx-star star' style="--i: 1;"></i>
+                        <i class='bx bx-star star' style="--i: 2;"></i>
+                        <i class='bx bx-star star' style="--i: 3;"></i>
+                        <i class='bx bx-star star' style="--i: 4;"></i>
+                        
+                    </div>
+                    <textarea name="opinion" cols="30" rows="5" placeholder="Your opinion..."></textarea>
+                    
+                    <br><br>
+                    <div class="btn-group">
+                        <button type="submit" class="btn-submit">Submit</button>
+                        <button type="reset" class="btn-cancel">Cancel</button>
+                    </div>
+
+
+                
+                </form>
+            </div>
+        
+        
+        </main>
+        
+        <!-- 
+        - #FOOTER
+        -->
+
+        <footer>
+            <div class="footer">
+                <ul class="footerlist">
+                <li><a href="pageeditor_stu_1.html">Isuru Dissanayake</a></li>
+                <li><a href="pageeditor_stu_2.html">Tharana Bopearachchi</a></li>
+                <li><a href="pageeditor_stu_3.html">Akila Senanayake</a></li>
+                <li><a href="pageeditor_stu_4.html">Pasindu Gamage</a></li>
+                </ul>
+            </div>
+        </footer>
+
+
+        <script src="Feedback.js"></script>
+    </body>
+</html>

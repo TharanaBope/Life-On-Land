@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    <link rel="icon" href="img/favicon/favicon.jpeg" type="image/svg+xml">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #title {
+            color: #fff;
+            font-size: 2.5em;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loader {
+            width: 120px;
+            height: 22px;
+            border-radius: 20px;
+            color: #56E161;
+            border: 2px solid;
+            position: relative;
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            margin: 2px;
+            inset: 0 100% 0 0;
+            border-radius: inherit;
+            background: currentColor;
+            animation: l6 5s infinite;
+        }
+
+        @keyframes l6 {
+            100% { inset: 0; }
+        }
+
+        .mission-container {
+            text-align: left;
+            margin: 40px;
+            color: white;
+            max-width: 400px;
+        }
+
+        .mission_topic {
+            font-size: 1.5em;
+        }
+
+        .mission {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .group-members {
+            display: flex;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .member {
+            margin: 0 10px;
+        }
+    </style>
+    <script>
+        setTimeout(function() {
+            window.location.href = 'home.html';
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="vid/splash.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="logo-container">
+        <img src="img/logo/logo.png" alt="Logo" class="logo">
+    </div>
+    <header>
+        <h1 id="title">Life on Land</h1>
+    </header>
+    <div class="loading">
+        <div class="loader"></div>
+    </div>
+    <div class="mission-container">
+        <p class="mission_topic">Mission:</p>
+        <p class="mission">
+            Protect, restore, and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation to halt biodiversity loss.
+        </p>
+    </div>
+    <div class="footer">
+        <div class="group-members">
+            <span class="member">Isuru Dissanayake</span>
+            <span class="member">Tharana Bopearachchi</span>
+            <span class="member">Pasindu Gamage</span>
+            <span class="member">Akila Senarathne</span>
+        </div>
+    </div>
+</body>
+</html>

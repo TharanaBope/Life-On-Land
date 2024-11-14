@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Pic&Vids/Favicon/1.svg.png" type="image/svg+xml">
+    <title>Page Editor - Student 2</title>
+    
+    <style>
+
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url("Pic&Vids/Page Editor/pe2.jpg"); /* Specify the path to your image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Fixed background position */
+    text-align: center;
+}
+
+/* Navigation bar styles */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    color: aliceblue;
+}
+
+
+.heading {
+    text-align: center;
+    color: rgb(3, 4, 4);   
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: rgba(47, 130, 136, 0.411);   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+    border-color: black;
+    border: 5px solid #000000;
+    width: 70%;
+}
+hr {
+    width: 70%; /* Set the width to 70% of its containing element */
+    height: 4px; /* Increase the thickness */
+    background-color: rgb(12, 11, 11); /* Set the color of the line */
+    margin: 20px auto; /* Center the <hr> horizontally with some vertical margin */
+    border: none; /* Remove the default border */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 5);
+}
+
+.mydetails{
+    
+    text-align: center;
+    color: rgb(9, 2, 2);
+    
+}
+.container{
+    text-align: center;
+    color: rgb(1, 8, 15); 
+    font-size:  23px;
+    font-weight: 500;
+    text-align: center;   
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: rgb(71, 142, 149, 0.411);   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+    border-color: black;
+    border: 5px solid #000000;
+    width: 70%;
+    height: auto;
+}
+h4{
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 5);
+    font-size: 35px;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container a{
+    padding-top: 1%;
+    background-color: rgb(255, 255, 255);
+    width: 21%;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 5%;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+}
+a:hover {
+    color: red; /* Change the color of the links on hover */
+}
+
+.tab-btn {
+    background-color:rgb(210, 209, 198);  
+    font-weight: 500;
+    padding: 10px 32px;
+    font-family: Playpen Sans, cursive;
+    overflow: hidden;
+    transition: background-color 0.2s;
+    border-radius: 10px;
+  }
+  
+  .tab-btn {
+    
+    color:whitesmoke;
+    font-size: 18px;
+    background: #20d67e;
+    box-shadow: 0 0 2px #20d67e, 0 0 5px #20d67e, 0 0 10px #20d67e;
+  }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="heading">
+        <h1>Page Editor</h1>
+    </div><hr>
+
+    <div class="mydetails">
+        <h3>Name: Tharana Bopearachchi</h3>
+        <h3>Role: Student 2</h3>
+        <h3>The following pages were edited by me.</h3>
+    </div><hr>
+
+    <div class="container"><br><br>
+       <div class="bottomlink"> <a href="#bottom" target="_blank"><button class="tab-btn ">Jump to bottom</button></a></div>
+        <br>
+        <h4>Home Page</h4>
+
+        <p>I created the home page of the group project that is where we worked on Life on Land web site. I had to learn a lot of styling parts from differnt sources to make the home page beautiful
+        and attractive.  The navigation bar which is the main part of a home page, the logo of our website where I managed to design carefully, a small description about the site aswell as the footer where leads to
+        each students page editors various styling was done to attract the user, and beautiful effects and images were used for it.</p><br>
+
+            <a href="home.html" target="_blank"><button class="tab-btn ">Home Page</button></a><br>
+
+            <h4>Feedback Form</h4>
+
+            <p>Through this feedback form, information about the site is obtained from the users who use our website.
+                There you can comment on the user's name, email and the difficulties they have encountered in using our site and the convenience here,
+                with ablity to rate our support as well.<br><br>
+                <a href="feedback.html" target="_blank"><button class="tab-btn ">Feedback Form</button></a><br><br>
+
+
+
+    </div>
+    <!-- Add an anchor at the bottom of the page -->
+    <div id="bottom"></div>
+
+
+    <script>
+
+        document.querySelector('a[href="#bottom"]').addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector('#bottom').scrollIntoView({ behavior: 'smooth' });
+        });
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Page</title>
+    
+    <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home {
+  
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Make the body take up the full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 2%; /* Adjusted padding to keep consistency */
+  background-color: rgba(0, 0, 0, 0.875);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; /* Changed from 999 to 1000 to keep original z-index */
+  color: rgb(42, 78, 109);
+}
+
+header.scrolling-active {
+  background-color: rgb(19, 17, 17);
+}
+
+.navlist {
+  display: flex;
+  margin-left: auto;
+}
+
+.navlist a {
+  position: relative;
+  font-size: 20px;
+  color: white;
+  margin-left: 65px; /* Changed from 40px to 65px to match original spacing */
+  text-decoration: none;
+  font-weight: 700; /* Changed from 500 to 700 to match original font weight */
+  border-bottom: 3px solid transparent;
+  transition: all 0.55s ease;
+}
+
+.navlist a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #56E161;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.navlist a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+  color: #56E161;
+}
+
+.navlist a.active {
+  border-bottom: 3px solid #56E161;
+}
+
+.img {
+  height: 75px;
+  width: 75px;
+  border-radius: 10px;
+}
+
+body {
+    background-image: url("Pic&Vids/Content page/back6.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    overflow-x: hidden;
+    margin-top: 100px; /* Prevent content overlap */
+}
+
+
+.box-container {
+  display: flex;
+}
+
+.tab-btn {
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+  margin-right: 50px;
+}
+
+.tab-btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3a3a3a;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.tab-btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000,
+    #FF7300,
+    #FFFB00,
+    #48FF00,
+    #00FFD5,
+    #002BFF,
+    #FF00CB,
+    #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite; /* Animation */
+  transition: 10px;
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.tab-btn:hover::before {
+  opacity: 1;
+}
+
+.tab-btn:active::after {
+  background: transparent;
+}
+
+.tab-btn:active {
+  color: #000000;
+  font-weight: bold;
+}
+
+.introduction,
+.plant,
+.clean,
+.conserv {
+  text-align: center;
+  margin-top: 100px;
+  background: transparent;
+}
+
+h2 {
+  padding-top: 50px;
+}
+
+.introduction {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.topic {
+  padding-top: 0;
+  text-align: center;
+  font-size: 30px;
+  color: #56e161;
+  margin-bottom: 20px;
+}
+
+.content {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.point-list {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.point {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 22px;
+}
+
+.point::before {
+  /*content: "•";*/
+  margin-right: 10px;
+  color: #20d67e; /* Change color as desired */
+}
+
+.water-icon::before {
+  content: "\25A0"; /* Unicode for black square (you can change to any other symbol) */
+  margin-right: 10px;
+  color: #20d67e; /* Change color as desired */
+  font-size: 18px; /* Adjust size as needed */
+}
+
+/* CSS to style the cards */
+.card {
+  width: 300px; /* Adjusted to make the card smaller */
+  height: 200px; /* Adjusted to make the card smaller */
+  background-color: #ede3e3;
+  border: 2px solid #333;
+  border-radius: 10px;
+  margin: 20px;
+  display: grid;
+  vertical-align: top;
+  background-size: cover;
+}
+
+.card img {
+  width: 100%;
+  height: 100%; /* Adjusted to make the image smaller */
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* CSS for hover effect */
+.card:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Center align items vertically */
+  margin-top: 50px;
+}
+
+.section-container:nth-child(even) .image-section {
+  order: 1; /* Reverse order for even sections */
+}
+
+.text-section {
+  flex: 1; /* Allow the text section to grow */
+  padding: 20px;
+  background-color: rgba(237, 227, 227, 0);
+  text-align: center;
+  font-size: 22px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.image-section {
+  flex: 1; /* Allow the image section to grow */
+  display: flex;
+  justify-content: space-around; /* Space images evenly */
+  padding: 20px;
+}
+
+.image-section .card {
+  width: 45%; /* Adjust width to fit two images side by side */
+  margin: 10px;
+}
+
+
+
+/*-----------------------------------*\
+    #FOOTER
+\*-----------------------------------*/
+
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerlist {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 25px 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footerlist a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none; /* Remove underline */
+    transition: all 0.55s ease;
+    position: relative; /* Ensure relative positioning for ::after pseudo-element */
+}
+
+.footerlist a::after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    bottom: -6px; /* Adjusted from -6px for better alignment */
+    width: 100%; /* Adjusted width to be shorter */
+    height: 3px; /* Adjusted from 3px for a thinner underline */
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s;
+}
+
+.footerlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand underline from left to right on hover */
+}
+
+.footerlist a:hover {
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    
+<div class="home">
+    <header>
+        <a href="Home.html"><img src="Pic&Vids/Logo/Life on Land logo.png" class="img" alt="LOGO"></a> 
+        <nav class="navlist">
+            <a href="Home.html">HOME</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="shop.html">SHOP</a>
+            <a href="profile.html">USER PROFILE</a>
+            <a href="Feedback.html">FEEDBACK</a>
+            <a href="sitemap.html">SITE MAP</a>
+            <a href="team.html">ABOUT US</a>        
+        </nav>
+    </header>
+    
+    <div class="box-container">
+        <a href="#introduction"><button class="tab-btn">INTRODUCTION</button></a>
+        <a href="#plant"><button class="tab-btn">PLANTING TREES</button></a>
+        <a href="#clean"><button class="tab-btn">CLEANING UP TRASH</button></a>
+        <a href="#conser"><button class="tab-btn">CONSERVING WATER</button></a>
+    </div>
+</div>
+
+<div id="introduction" class="introduction">
+    <h1 style="color: #56E161; font-weight:1500; text-align: center;padding-bottom: 20px;">HELP OUR PLANET </h1>
+    <br>
+    <h2 class="topic">INTRODUCTION</h2>
+    
+    <div class="content">
+        <h3 class="intro" style="color: white; font-size: 25px; text-align: center;">
+            In a world where environmental challenges loom large, every action counts. "Helping Our Planet" is not just a slogan; it's a mindset,
+            a commitment to safeguarding the Earth for future generations. This content page serves as a beacon of hope and guidance, offering practical insights 
+            and actionable steps to contribute to the well-being of our planet.
+        </h3>  <br>  
+        <ul class="point-list">
+            <li class="point water-icon">In the grand tapestry of existence, our planet Earth holds a unique position. It's our home, our provider,
+                and our legacy to cherish. However, with rapid industrialization, urbanization, and the ever-increasing demands of modern life, 
+                the delicate balance of nature is under threat. Climate change, deforestation, pollution, and loss of biodiversity are pressing 
+                issues that demand urgent attention.
+            </li>
+            <li class="point water-icon">But amidst these challenges lies an opportunity for collective action, for individual responsibility,
+                and for positive change. "Helping Our Planet" is not a task solely reserved for governments or environmental organizations; it's a 
+                responsibility we all share, regardless of age, nationality, or background.
+            </li>
+        </ul>
+    </div>      
+</div>
+
+<div id="plant" class="section-container">
+    <div class="text-section">
+        <h2 class="topic">PLANTING TREES</h2>
+        <ul class="point-list">
+            <li class="point water-icon">Healthy environment</li>
+            <li class="point water-icon">Provide oxygen</li>
+            <li class="point water-icon">Improve air quality</li>
+            <li class="point water-icon">Conserve water</li>
+            <li class="point water-icon">Support wildlife</li>
+        </ul><br>
+        <p>By planting trees, we contribute to the well-being of our planet and future generations.</p>
+    </div>
+    <div class="image-section">
+        <div class="card">
+            <img src="Pic&Vids/Content page/tree1.jpg" alt="Tree 1">
+        </div>
+        <div class="card">
+            <img src="Pic&Vids/Content page/tree2.jpg" alt="Tree 2">
+        </div>
+    </div>
+</div>
+
+<div id="clean" class="section-container">
+    <div class="text-section">
+        <h2 class="topic">CLEANING UP TRASH</h2>
+        <ul class="point-list">
+            <li class="point water-icon">Land pollution harms ecosystems, wildlife.</li>
+            <li class="point water-icon">Trash endangers animals, ecosystems.</li>
+            <li class="point water-icon">Join community clean-up efforts.</li>
+            <li class="point water-icon">Reduce waste, practice recycling.</li>
+            <li class="point water-icon">Advocate against plastic pollution.</li>
+        </ul>
+    </div>
+    <div class="image-section">
+        <div class="card">
+            <img src="Pic&Vids/Content page/clean1 (1).jpg" alt="Clean 1">
+        </div>
+        <div class="card">
+            <img src="Pic&Vids/Content page/clean2.jpg" alt="Clean 2">
+        </div>
+    </div>
+</div>
+
+<div id="conser" class="section-container">
+    <div class="text-section">
+        <h2 class="topic">CONSERVING WATER</h2>
+        <ul class="point-list">
+            <li class="point water-icon">Water conservation is crucial.</li>
+            <li class="point water-icon">Fix leaks to save water.</li>
+            <li class="point water-icon">Use efficient irrigation methods.</li>
+            <li class="point water-icon">Educate about water conservation.</li>
+            <li class="point water-icon">Support initiatives for water protection.</li>
+        </ul>
+    </div>
+    <div class="image-section">
+        <div class="card">
+            <img src="Pic&Vids/Content page/water1.jpg" alt="Water 1">
+        </div>
+        <div class="card">
+            <img src="Pic&Vids/Content page/water2.jpg" alt="Water 2">
+        </div>
+    </div>
+</div>
+
+<a href="#"><button class="tab-btn" style=" bottom: 5px; left: 50%; transform: translateX(-50%);">BACK TO TOP</button></a>
+<footer>
+    <div class="footer">
+        <ul class="footerlist">
+        <li><a href="pageeditor_stu_1.html">Isuru Dissanayake</a></li>
+        <li><a href="pageeditor_stu_2.html">Tharana Bopearachchi</a></li>
+        <li><a href="pageeditor_stu_3.html">Akila Senanayake</a></li>
+        <li><a href="pageeditor_stu_4.html">Pasindu Gamage</a></li>
+        </ul>
+    </div>
+</footer>
+<script>
+    window.addEventListener('scroll', function() {
+        var header = document.querySelector('header');
+        header.classList.toggle('scrolling-active', window.scrollY > 0);
+    });
+</script>
+
+</body>
+</html>

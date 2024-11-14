@@ -1,0 +1,67 @@
+body {
+    margin: 0; 
+    padding: 0;
+    background: url(Pics/Gallery/forest2.jpeg) no-repeat;
+    background-size: cover;
+}
+
+.box {
+    width: 458px;
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 40px;
+    text-align: center;
+    margin: auto; 
+    margin-top: 5%; 
+    color: white;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+.box-img {
+    border-radius: 50%; 
+    width: 208px; 
+    height: 200px;
+}
+
+.box h1 {
+    font-size: 40px; 
+    letter-spacing: 4px; 
+    font-weight: 100;
+}
+
+.box h5 {
+    font-size: 20px; 
+    letter-spacing: 3px; 
+    font-weight: 100;
+}
+
+.box p {
+    text-align: center;
+    font-size: 30px;
+}
+
+ul {
+    margin: 0; 
+    padding: 0;
+    list-style-type: none;
+}
+
+.box li {
+    display: inline-block;
+    margin: 6px;
+}
+
+.font-buttons .font-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.font-buttons .font-btn:hover {
+    background-color: white;
+    color: black;
+}
+

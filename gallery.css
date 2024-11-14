@@ -1,0 +1,381 @@
+/* Resetting default styles and applying box-sizing and font family globally */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+/* Styling the header section */
+header {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 100%;
+    padding: 10px 2%; 
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; 
+    color: rgb(42, 78, 109);
+}
+/* Changing the background color when the header is active */
+header.scrolling-active {
+    background-color: rgb(19, 17, 17);
+}
+/* Styling the navigation list */
+.navlist {
+    display: flex;
+    margin-left: auto;
+}
+/* Styling the navigation links */
+.navlist a {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    margin-left: 65px; 
+    text-decoration: none;
+    font-weight: 700; 
+    border-bottom: 3px solid transparent;
+    transition: all 0.55s ease;
+}
+/* Adding a hover effect to the navigation links */
+.navlist a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+/* Expanding the underline effect on hover */
+.navlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    color: #56E161;
+
+}
+/* Adding a bottom border to the active link */
+.navlist a.active {
+    border-bottom: 3px solid #56E161;
+}
+/* Styling the logo image */
+.imge {
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+}
+/* Styling the slider container */
+.sliders{
+    width: 99vw;
+    height: 100vh;
+    margin-top: 0px;
+    overflow: hidden;
+    position: relative;
+}
+/* Styling each slider item */
+.sliders .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+}
+/* Styling the first two items differently */
+.sliders .list .item:nth-child(1),
+.sliders .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+/* Positioning the third item */
+.sliders .list .item:nth-child(3){
+    left: 67%;
+}
+/* Positioning the fourth item */
+.sliders .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+/* Positioning the fifth item */
+.sliders .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+/* Positioning the sixth item */
+.sliders .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+/* Hiding the items after the sixth */
+.sliders .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+/* Styling the content inside each item */
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+/* Displaying the content of the second item */
+.list .item:nth-child(2) .content{
+    display: block;
+}
+/* Styling the title of each item */
+.content .title{
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+/* Styling the name of each item */
+.content .name{
+    font-size: 70px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+/* Styling the description of each item */
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+/* Styling the button container */
+.content .buttons{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+/* Styling the buttons inside the content */
+.content .buttons button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+/* Defining the animation for content appearance */
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+/* Styling the arrow buttons container */
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 34%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+/* Styling the individual arrow buttons */
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+/* Changing the appearance of the arrow buttons on hover */
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+}
+/* Styling the popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid #fff;
+    z-index: 1001;
+}
+/* Showing the popup when the 'show' class is added */
+.popup.show {
+    display: block;
+}
+/* Styling the popup close button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+/* Container for color buttons */
+.colourbuttons {
+    position: absolute;
+    top: 105%;
+    left: -1%;
+    gap: 5px;
+}
+/* Styling each color button */
+.clrbutton {
+    padding: 5px;
+    margin: 5px;
+    border: black;
+    cursor: pointer;
+    
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+/* Specific styling for the button with color green */
+.clrbutton[data-colour="#14ff72cb"] {
+    background-color: #14ff72cb;
+    color: white;
+    
+}
+/* Specific styling for the button yellow */
+.clrbutton[data-colour="yellow"] {
+    background-color: rgb(211, 242, 11);
+    color: white;
+}
+/* Specific styling for the button white */
+.clrbutton[data-colour="none"] {
+    background-color: white;
+    color: black;
+}
+/* Container for font change buttons */
+.fontchange {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    position: absolute;
+    top: 135%;
+    left: -24%;
+    gap: 5px;
+}
+/* Styling each font change button */
+.fontbutton {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #14ff72cb;
+    color: #fff;
+}
+/* Styling for font buttons on hover */
+.fontbutton:hover {
+    background-color: #fff;
+    color: #14ff72cb;
+    transition: 0.6s;
+}
+/* Styling the footer section */
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+/* Container for footer links */
+.footerlist {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 25px 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* Styling each footer link */
+.footerlist a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none; 
+    transition: all 0.55s ease;
+    position: relative; 
+}
+/* Styling the underline effect for footer links */
+.footerlist a::after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    bottom: -6px; 
+    width: 100%; 
+    height: 3px; 
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0); 
+    transition: transform 0.3s;
+}
+/* Expanding the underline effect on hover */
+.footerlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1); /
+}
+/* Changing the text color on hover */
+.footerlist a:hover {
+    color: white;
+}
+
+
+    
+
+
+
+
+
+

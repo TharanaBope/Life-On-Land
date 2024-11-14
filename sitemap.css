@@ -1,0 +1,182 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0; /* Changed from left to right to match the original position */
+    width: 100%;
+    padding: 10px 2%; /* Adjusted padding to keep consistency */
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Changed from 999 to 1000 to keep original z-index */
+    color: rgb(42, 78, 109);
+}
+
+header.scrolling-active {
+    background-color: rgb(19, 17, 17);
+}
+
+.navlist {
+    display: flex;
+    margin-left: auto;
+}
+
+.navlist a {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    margin-left: 65px; /* Changed from 40px to 65px to match original spacing */
+    text-decoration: none;
+    font-weight: 700; /* Changed from 500 to 700 to match original font weight */
+    border-bottom: 3px solid transparent;
+    transition: all 0.55s ease;
+}
+
+.navlist a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.navlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    color: #56E161;
+
+}
+
+.navlist a.active {
+    border-bottom: 3px solid #56E161;
+}
+
+body{
+    background-image: url("Pics/Sitemap/sample2.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; 
+    overflow-x:hidden;  
+}
+
+.img {
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+}
+
+main{
+    margin-top: 120px;
+    margin-left: 35px;
+    margin-right: 55px;
+    margin-bottom: -350px;
+}
+
+.map{
+    width: 100%;
+    height: 75%;
+    margin-bottom:0px;
+    background-color: rgba(0, 0, 0, 0.4) ; 
+    border-radius: 10px ;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
+}   
+
+h1{
+    font-size: 80px;
+    margin-top: 70px;
+    margin-left:420px;
+    color: #fff;
+    font-weight: 705;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    transition: text-shadow 0.3s ease;
+}
+
+h1:hover{
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
+}
+
+.home:hover rect {
+    fill: white; 
+}
+
+.home:hover text {
+    fill: #29b635; 
+}
+
+a:hover rect {
+    fill: #29b635; 
+}
+
+a:hover text {
+    fill:white; 
+}
+
+footer{
+    position:static;
+    bottom: 0;
+    width: 100%;
+    margin-top: 380px;
+    
+}
+
+.footerlist {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 25px 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footerlist a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .55s ease;
+    position: relative;
+
+}
+
+.footerlist a::after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    bottom: -6px; /* Adjusted from -6px for better alignment */
+    width: 100%; /* Adjusted width to be shorter */
+    height: 3px; /* Adjusted from 3px for a thinner underline */
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s;
+}
+
+.footerlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand underline from left to right on hover */
+}
+
+.footerlist a:hover{
+    color: white;
+}
+ 

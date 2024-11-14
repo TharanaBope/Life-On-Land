@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_1_Page_Editor</title>
+    <link rel="icon" href="img/favicon/favicon.jpeg" type="image/svg+xml">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('img/background/background.jpg'); /* Replace with your image path */
+            background-size: cover; /* Optional: to cover the entire area */
+            background-position: center; /* Optional: to center the image */
+            background-repeat: no-repeat; /* Optional: to prevent repeating */
+        }
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+        footer {
+            background: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #fff;
+        }
+
+        h2{
+            color: #000;
+        }
+        p {
+            margin: 0.5rem 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 0.5rem 0;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #088178;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        ul li a:hover {
+            color: #056f5b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student 1 Page Editor</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Welcome to My Page Editor</h2>
+            <p>This project is aimed at creating a seamless and engaging user experience for an online shopping platform. Below is a detailed overview of the different components of our project:</p>
+            <ul>
+                <li><a href="splash.html" target="_blank">Splash Screen</a>: 
+                    <p>This introductory screen welcomes users to the platform with a visually appealing animation or video. It sets the tone for the website and transitions smoothly to the home page after a brief moment, providing a great first impression.</p>
+                </li>
+                <li><a href="shop.html" target="_blank">Shop</a>: 
+                    <p>The shop page is where users can browse through various products available for purchase. It features a clean and intuitive layout, making it easy for users to find items of interest. Each product listing includes an image, a brief description, and an "Add to Cart" button to streamline the shopping experience.</p>
+                    <p>Our shop offers a diverse range of products, including:</p>
+                    <ul>
+                        <li><strong>Caps:</strong> Available in various colors and designs, our caps are perfect for everyday wear, offering both style and comfort.</li>
+                        <li><strong>Shirts:</strong> Our collection of shirts features a variety of colors and patterns, suitable for both casual and formal occasions.</li>
+                        <li><strong>T-Shirts:</strong> Choose from a wide range of t-shirts with different prints and designs, perfect for expressing your personal style.</li>
+                        <li><strong>Bags:</strong> Our bags come in multiple styles and sizes, designed to meet your needs whether for daily use or special outings.</li>
+                    </ul>
+                </li>
+                <li><a href="cart.html" target="_blank">Cart</a>: 
+                    <p>The cart page allows users to view the items they have added to their shopping cart. Users can modify quantities or remove items as needed. The cart page also displays the total cost of the selected items and includes a "Proceed to Payment" button to move forward with the purchase process.</p>
+                </li>
+                <li><a href="payment.html" target="_blank">Payment</a>: 
+                    <p>The payment page is designed to securely handle users' payment information. It features a simple form where users can enter their name, address, card details, and other necessary information. The payment process is designed to be quick and secure, ensuring user confidence and satisfaction.</p>
+                    <p>Key features and validations on the payment page include:</p>
+                    <ul>
+                        <li><strong>Name and Surname:</strong> Validation to ensure the name contains only letters and spaces.</li>
+                        <li><strong>Phone Number:</strong> Validation to ensure the phone number is in a valid format and contains the correct number of digits.</li>
+                        <li><strong>Address:</strong> Mandatory field to ensure a shipping address is provided.</li>
+                        <li><strong>Card Number:</strong> Validation to ensure the card number is 16 digits long and passes the Luhn algorithm check.</li>
+                        <li><strong>Expiry Date:</strong> Validation to ensure the expiry month and year are valid and the card is not expired.</li>
+                        <li><strong>CVV:</strong> Validation to ensure the CVV is 3 or 4 digits long.</li>
+                    </ul>
+                    <p>These validations help in preventing errors during the payment process and ensure that the data entered by users is correct.</p>
+                </li>
+                <li><a href="content1.html" target="_blank">Content Page</a>: 
+                    <p>The content page provides detailed information about endangered species and conservation efforts. It includes sections such as Introduction, Factors Contributing to Endangerment, Successful Conservation Programs, Role of Zoos, Reserves, and Wildlife Sanctuaries, and Conclusion. Each section is accessible through the navigation bar and offers in-depth content to educate and engage users on the topic.</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Isuru Dissanayake</p>
+    </footer>
+</body>
+</html>

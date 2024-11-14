@@ -1,0 +1,753 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*-----------------------------------*\
+    NAVIGATION BAR
+\*-----------------------------------*/
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0; /* Changed from left to right to match the original position */
+    width: 100%;
+    padding: 10px 2%; /* Adjusted padding to keep consistency */
+    background-color: rgba(0, 0, 0, 0.818);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Changed from 999 to 1000 to keep original z-index */
+    color: rgb(42, 78, 109);
+}
+
+header.scrolling-active {
+    background-color: rgb(19, 17, 17);
+}
+
+.navlist {
+    display: flex;
+    margin-left: auto;
+}
+
+.navlist a {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    margin-left: 65px; /* Changed from 40px to 65px to match original spacing */
+    text-decoration: none;
+    font-weight: 700; /* Changed from 500 to 700 to match original font weight */
+    border-bottom: 3px solid transparent;
+    transition: all 0.55s ease;
+}
+
+.navlist a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.navlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    color: #56E161;
+
+}
+
+.navlist a.active {
+    border-bottom: 3px solid #56E161;
+}
+
+.img {
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+}
+
+
+body {
+    background-image: url('Pic&Vids/Home/sample2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: rgb(91, 88, 88);
+    text-align: center;
+    height: 100vh;
+}
+
+/*-----------------------------------*\
+    Hero  ---> content body 
+\*-----------------------------------*/
+
+.hero {
+    min-height: 700px;
+    padding-block: 120px 60px;
+    display: grid;
+    align-items: center;
+    text-align: left; /* Align all text to the left */
+}
+
+.section-subtitle {
+    color: white;
+    font-size: 22px;
+    font-family: Playpen Sans, cursive;
+}
+
+.hero-title {
+    font-weight: 700;
+    color: white;
+    font-size: 85px;
+    margin-block: 30px;
+    line-height: 1.2;
+    animation: animate 4s ease-in-out;
+    text-align: left; /* Align text to the left */
+}
+
+
+
+.hero-text {
+    font-weight: 500;
+    color: white;
+    font-family: Playpen Sans, cursive;
+    font-size: 22px;
+    letter-spacing: -1px;
+    max-width: 50ch;
+    margin-block-end: 30px;
+    text-align: left; /* Align text to the left */
+}
+
+
+  
+  /*-----------------------------------*\
+    #FEATURES --> content body bottom
+  \*-----------------------------------*/
+  
+  .features {
+    padding-block-start: 0;
+    
+    
+  }
+  .item-text{
+    font-family: Playpen Sans, cursive; 
+  }
+  
+  .features-list {
+    display: grid;
+    gap: 30px;
+  }
+  
+  .features-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+  }
+  
+  .features-item .item-title { margin-block-end: 10px; }
+  
+  .features-item .item-text {
+    max-width: 25ch;
+    color: var(--white_50);
+    font-size: var(--fs-9);
+  }
+
+/*-----------------------------------*\
+    ABOUT Content
+\*-----------------------------------*/
+
+.about {
+    padding-block-start: 120px;
+    text-align: center; /* Center align the content */
+}
+
+.about-banner {
+    position: relative;
+    max-width: max-content;
+    margin-block-end: 30px;
+}
+
+.section-text {
+    font-family: Playpen Sans, cursive;
+    font-size: 20px;
+    color: white; /* Change the text color to white */
+    margin-bottom: 20px; /* Add some space below the text */
+}
+
+h2 .section-title {
+    color: aqua;
+}
+
+.deco-img {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    z-index: -1;
+}
+
+.about-img {
+    max-width: max-content;
+    margin-block-end: 30px;
+}
+
+.about .section-subtitle {
+    font-size: larger;
+    margin-block-end: 10px;
+}
+
+.tab-nav {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px;
+    margin-block: 25px 35px;
+}
+
+.tab-btn {
+    background-color: rgb(210, 209, 198);
+    font-weight: 500;
+    padding: 10px 32px;
+    font-family: Playpen Sans, cursive;
+    overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.tab-btn {
+    color: whitesmoke;
+    background: #20d67e;
+    box-shadow: 0 0 2px #20d67e, 0 0 5px #20d67e, 0 0 10px #20d67e;
+}
+
+.tab-btn:hover {
+    background-color: #14673f; /* Change the background color on hover */
+}
+
+.tab-list {
+    margin-block: 25px 50px;
+    display: flex;
+    flex-direction: column; /* Make the tab items stack vertically */
+    align-items: center; /* Center align the tab items */
+}
+
+.tab-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-block: 5px;
+    justify-content: center; /* Center the tab items */
+}
+
+.tab-text {
+    color: white; /* Change the text color to white */
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/*-----------------------------------*\
+    == OUR TARGETS ==
+\*-----------------------------------*/
+
+.service {
+    background-color: rgba(119, 117, 117, 0.051); /* Adjust the last value to change transparency */
+    background-repeat: no-repeat;
+    background-position: center top;
+    margin-block-start: 20px;
+    padding-block-start: 50px;
+    height: 600px;
+    background-image: url(images/targets/target1.jpg);
+    background-size: 100% 100%;
+}
+
+.service .section-title {
+    margin-block: 10px 40px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white; /* Change the text color to white */
+}
+
+.service-list {
+    display: grid;
+    gap: 30px;
+}
+
+.service-card {
+    background-color: rgba(116, 116, 116, 0.036); /* Make the service cards transparent */
+    text-align: center;
+    padding: 45px 40px;
+    border-radius: 2px;
+    outline: 5px solid transparent;
+    box-shadow: 5px 10px 8px;
+    color: white; /* Change the text color inside service cards to white */
+}
+
+.service-card:is(:hover, :focus-within) { 
+    outline-color: rgb(105, 222, 105); 
+}
+
+.service-card .card-title {
+    letter-spacing: -1px;
+    margin-block: 50px;
+    font-family: Playpen Sans, cursive;
+    color: white; /* Ensure the card title text is white */
+}
+
+
+/*-----------------------------------*\
+  THINGS TO DO
+\*-----------------------------------*/
+
+.event { 
+    padding-block-end: 120px; 
+}
+
+.event .section-subtitle { 
+    justify-content: center;
+    color: rgb(58, 102, 58);
+}
+
+.event .section-title {
+    text-align: center;
+    margin-block: 15px 50px;
+}
+
+.event-list {
+    display: grid;
+    gap: 30px;
+    margin-block-end: 70px;
+}
+
+.event-card {
+    border: 1px solid whitesmoke;
+    padding: 40px 30px;
+    border-radius: 2px;
+    outline: 3px solid transparent;
+}
+
+.event-card:is(:hover, :focus-within) { 
+    outline-color: rgb(105, 222, 105); 
+}
+
+.event-card .card-time {
+    background-color: whitesmoke;
+    color: black;
+    font-weight: 600;
+    max-width: max-content;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 5px 10px 8px;
+}
+
+.event-card .card-subtitle {
+    color: rgb(58, 102, 58);
+    margin-block: 30px 5px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left; /* Align the subtitle to the left */
+}
+
+.event-card .card-text {
+    font-family: Playpen Sans, cursive;
+    margin-block: 5px 30px;
+    font-size: 20px;
+    color: white;
+    text-align: left; /* Align the text to the left */
+}
+
+
+  
+
+/*-----------------------------------*\
+    #INSTA POST
+  \*-----------------------------------*/
+  
+  .insta-post-link {
+    position: relative;
+    background-color: rgba(94, 94, 94, 0.481);
+    overflow: hidden;
+  }
+  
+  .insta-post-link > ion-icon {
+    color: whitesmoke;
+    font-size: 5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  
+  .insta-post-link:is(:hover, :focus) > ion-icon { opacity: 1; }
+  
+  .insta-post-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: inline mandatory;
+  }
+  
+  .insta-post-list::-webkit-scrollbar { display: none; }
+  
+  .insta-post-item {
+    min-width: 90%;
+    scroll-snap-align: center;
+  }
+
+/*-----------------------------------*\
+    #FOOTER
+\*-----------------------------------*/
+
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerlist {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 25px 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footerlist a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none; /* Remove underline */
+    transition: all 0.55s ease;
+    position: relative; /* Ensure relative positioning for ::after pseudo-element */
+}
+
+.footerlist a::after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    bottom: -6px; /* Adjusted from -6px for better alignment */
+    width: 100%; /* Adjusted width to be shorter */
+    height: 3px; /* Adjusted from 3px for a thinner underline */
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s;
+}
+
+.footerlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand underline from left to right on hover */
+}
+
+.footerlist a:hover {
+    color: white;
+}
+
+
+  
+
+
+
+   
+  /*
+  /*-----------------------------------*\
+    #MEDIA QUERIES
+  \*-----------------------------------*/
+    
+  /**
+   * responsive for larger than 580px screen
+   */
+  
+   @media (min-width: 580px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-2: 5.5rem;
+  
+    }
+  
+
+    /**
+     * EVENT
+     */
+  
+    .event-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+    }
+  
+    .event-card .card-subtitle { margin-block-start: 0; }
+  
+    .event-card .card-title {
+      font-size: var(--fs-5);
+      line-height: 1.4;
+    }
+  
+
+    /**
+     * INSTA POST
+     */
+  
+    .insta-post-item { min-width: 45%; }
+  
+  }
+
+  /**
+   * responsive for larger than 768px screen
+   */
+   @media (min-width: 768px) {
+    /* FEATURES, SERVICE */
+    .features-list,
+    .service-list { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 20px;
+    }
+
+    /* ABOUT */
+    .banner-row {
+        display: flex;
+        gap: 20px;
+    }
+
+    .deco-title {
+        position: relative;
+        top: 10%;
+        left: calc(100% + 40px);
+    }
+
+    .about-img { 
+        margin-bottom: 0; 
+    }
+
+    .about-img:first-child { 
+        margin-bottom: 30px; 
+    }
+
+    /* TESTIMONIALS */
+    /* No specific styles provided */
+
+    /* INSTA POST */
+    .insta-post-item { 
+        min-width: 32%; 
+    }
+
+    /* FOOTER */
+    .footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        padding-inline: 40px;
+    }
+
+    .footer-list,
+    .copyright { 
+        margin-inline: 0; 
+    }
+
+    .footer-list { 
+        margin-bottom: 0; 
+    }
+}
+
+  /**
+   * responsive for larger than 992px screen
+   */
+
+   :root {
+    /* CUSTOM PROPERTY */
+    /* typography */
+    --fs-2: 7.5rem;
+}
+
+@media (min-width: 992px) {
+    /* HEADER */
+    .header {
+        transition: var(--transition-2);
+    }
+
+    .header-action {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .search-btn {
+        color: var(--white);
+        font-size: 2.6rem;
+    }
+
+    .search-btn ion-icon {
+        --ionicon-stroke-width: 50px;
+    }
+
+    /* HERO */
+    .hero {
+        background-image: url("images/bac-image/sample2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
+        min-height: 780px;
+    }
+
+    /* FEATURES */
+    .features {
+        padding-top: var(--section-padding);
+    }
+
+    .features-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* ABOUT */
+    .banner-col {
+        width: 50%;
+    }
+
+    .about-img {
+        max-width: 100%;
+    }
+
+    .about-img-2 {
+        min-width: 120%;
+        margin-left: -20%;
+    }
+
+    .about-img-3 {
+        max-width: 90%;
+    }
+
+    .about .container {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        align-items: flex-start;
+        gap: 120px;
+    }
+
+    .about-banner {
+        margin-bottom: 0;
+    }
+
+    /* SERVICE */
+    .service-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* DONATE */
+    .donate-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+    }
+
+    /* EVENT */
+    .event-card .wrapper {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .event-card .card-text {
+        margin-bottom: 0;
+    }
+
+    /* INSTA POST */
+    .insta-post-item {
+        min-width: 24%;
+    }
+}
+  
+
+  
+  /**
+   * responsive for larger than 1200px screen
+   */
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .container {
+      max-width: 1400px;
+      width: 100%;
+      margin-inline: auto;
+      padding-inline: 30px;
+    }
+  
+    .section-title { line-height: 1.2; }
+  
+    /**
+     * HERO
+     */
+  
+    .hero {
+      padding-block: 200px 325px;
+      background-position: center;
+    }
+
+    /**
+     * FEATURES
+     */
+  
+    .features {
+      font-weight: 600;
+      font-size: 17px;
+      color: whitesmoke;
+      padding-block-start: 0;
+      margin-block-start: -185px;
+      background-color: transparent;
+    }
+
+    .h4{
+      font-size: 22px;
+      color: rgb(95, 215, 141);
+      font-weight: 600;
+    }
+
+    /**
+     * ABOUT
+     */
+  
+    .deco-img { left: -35px; }
+
+    /**
+     * INSTA POST
+     */
+  
+    .insta-post-item { min-width: 20%; }
+
+    /**
+     * FOOTER
+     */
+  
+    .footer .container {
+      margin-inline: 30px;
+      width: auto;
+    }
+  
+  

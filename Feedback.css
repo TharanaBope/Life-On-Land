@@ -1,0 +1,306 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0; /* Changed from left to right to match the original position */
+    width: 100%;
+    padding: 10px 2%; /* Adjusted padding to keep consistency */
+    background-color: rgba(0, 0, 0, 0.875);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Changed from 999 to 1000 to keep original z-index */
+    color: rgb(42, 78, 109);
+}
+
+header.scrolling-active {
+    background-color: rgb(19, 17, 17);
+}
+
+.navlist {
+    display: flex;
+    margin-left: auto;
+}
+
+.navlist a {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    margin-left: 65px; /* Changed from 40px to 65px to match original spacing */
+    text-decoration: none;
+    font-weight: 700; /* Changed from 500 to 700 to match original font weight */
+    border-bottom: 3px solid transparent;
+    transition: all 0.55s ease;
+}
+
+.navlist a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.navlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    color: #56E161;
+
+}
+
+.navlist a.active {
+    border-bottom: 3px solid #56E161;
+}
+
+.img {
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+}
+
+body {
+    background-image: url("Pic&Vids/Home/sample2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100vw; 
+    overflow-x: hidden;
+}
+
+
+
+main{
+    margin-top: 125px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 80px; 
+    
+}
+
+.form {
+    width: 50vw;
+    margin: 20vh auto 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 10px;
+    font-size: 12px;
+    box-shadow: 0 5px 9px rgba(0, 0, 1, 0.325);
+}
+
+input{
+    color: black;
+}
+
+.heading{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.heading h1 {
+    color: white;
+    
+    font-size: 32px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+    letter-spacing: 1px;
+}
+
+
+
+.container-1 input[type="radio"]{
+    accent-color: #56E161;
+    height: 15px; 
+    width: 15px;
+}
+
+.container-2 input[type="radio"]{
+    accent-color: #56E161;
+    height: 15px; 
+    width: 15px;
+}
+
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 700;
+    width: 45%;
+    color: black;
+    background-color: #56E161;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-group {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-group button:hover{
+    color: whitesmoke;
+    
+    
+}
+
+label{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: none;
+}
+
+.input-control.error input {
+    border-color: none;
+}
+
+.input-control .error {
+    color: red;
+    font-size: 12px;
+    height: 13px;
+}
+
+.textarea-1{
+    width: 100%; 
+    height: 75px;
+    resize: none;
+}
+
+.rating {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: .5rem;
+	font-size: 2.9rem;
+	margin-bottom: 2rem;
+}
+.rating .star {
+	cursor: pointer;
+    color: #56E161;
+}
+.rating .star.active {
+	opacity: 0;
+	animation: animate .5s calc(var(--i) * .1s) ease-in-out forwards;
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+.rating .star:hover {
+	transform: scale(1.1);
+}
+textarea {
+	width: 100%;
+	background: #F5F5F5;
+	padding: 1rem;
+	border-radius: .5rem;
+	color: black;
+	resize: none;
+	margin-bottom: .5rem;
+}
+
+
+/*-----------------------------------*\
+    #FOOTER
+\*-----------------------------------*/
+
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerlist {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 25px 3%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footerlist a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none; /* Remove underline */
+    transition: all 0.55s ease;
+    position: relative; /* Ensure relative positioning for ::after pseudo-element */
+}
+
+.footerlist a::after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    bottom: -6px; /* Adjusted from -6px for better alignment */
+    width: 100%; /* Adjusted width to be shorter */
+    height: 3px; /* Adjusted from 3px for a thinner underline */
+    background: #56E161;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s;
+}
+
+.footerlist a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1); /* Expand underline from left to right on hover */
+}
+
+.footerlist a:hover {
+    color: white;
+}
+
+

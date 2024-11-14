@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="icon" href="img/favicon/favicon.jpeg" type="image/svg+xml">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Spartan", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('img/background/background.jpg'); /* Replace with your image path */
+            background-size: cover; /* Optional: to cover the entire area */
+            background-position: center; /* Optional: to center the image */
+            background-repeat: no-repeat; /* Optional: to prevent repeating */
+        }
+
+
+        main {
+          flex: 1;
+          padding-top: 120px; /* Add padding to avoid header overlap */
+        }
+
+        h1 {
+          font-size: 50px;
+          line-height: 64px;
+          color: #222;
+        }
+
+        h2 {
+          font-size: 46px;
+          line-height: 54px;
+          color: #222;
+        }
+
+        h4 {
+          font-size: 20px;
+          color: #222;
+        }
+
+        h6 {
+          font-weight: 700;
+          font-size: 12px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #465b52;
+          margin: 15px 0 20px 0;
+        }
+
+        .section-p1 {
+          padding: 40px 80px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px 2%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            color: rgb(42, 78, 109);
+        }
+
+        header.scrolling-active {
+            background-color: rgb(19, 17, 17);
+        }
+
+        .navlist {
+            display: flex;
+            margin-left: auto;
+        }
+
+        .navlist a {
+            position: relative;
+            font-size: 20px;
+            color: white;
+            margin-left: 65px;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 3px solid transparent;
+            transition: all 0.55s ease;
+        }
+
+        .navlist a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: #56E161;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .navlist a:hover::after {
+            transform-origin: left;
+            transform: scaleX(1);
+            color: #56E161;
+        }
+
+        .navlist a.active {
+            border-bottom: 3px solid #56E161;
+        }
+
+        .img {
+            height: 75px;
+            width: 75px;
+            border-radius: 10px;
+        }
+
+        #cart {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        #cart-table th, #cart-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #cart-table th {
+            background-color: #f2f2f2;
+        }
+
+        .cart-summary {
+            text-align: right;
+        }
+
+        .cart-summary h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        button.remove-item {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.remove-item:hover {
+            background-color: #e60000;
+        }
+
+
+        .footer {
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footerlist {
+            list-style-type: none;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            padding: 25px 3%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .footerlist a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.55s ease;
+            position: relative;
+        }
+
+        .footerlist a::after {
+            content: '';
+            position: absolute;
+            left: 0%;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: #56E161;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .footerlist a:hover::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .footerlist a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home.html"><img src="img/logo/logo.png" class="img" alt="LOGO"></a> 
+        <nav class="navlist">
+            <a href="home.html">HOME</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="shop.html">SHOP</a>
+            <a href="profile.html">USER PROFILE</a>
+            <a href="feedback.html">FEEDBACK</a>
+            <a href="sitemap.html">SITE MAP</a>
+            <a href="team.html">ABOUT US</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cart" class="section-p1">
+            <h2>Shopping Cart</h2>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be inserted here dynamically -->
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <h3>Total: <span id="cart-total">$0.00</span></h3>
+            </div>
+            <button id="proceed-to-payment" class="btn">Proceed to Payment</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <ul class="footerlist">
+            <li><a href="pageeditor_stu_1.html">Isuru Dissanayake</a></li>
+            <li><a href="pageeditor_stu_2.html">Tharana Bopearachchi</a></li>
+            <li><a href="pageeditor_stu_3.html">Akila Senanayake</a></li>
+            <li><a href="pageeditor_stu_4.html">Pasindu Gamage</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { 
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const proceedToPaymentBtn = document.getElementById('proceed-to-payment');
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            function updateCartDisplay() {
+                cartItemsContainer.innerHTML = '';
+                total = 0;
+
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td><button class="remove-item" data-index="${index}">Remove</button></td>
+                    `;
+
+                    cartItemsContainer.appendChild(row);
+                });
+
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+
+                const removeButtons = document.querySelectorAll('.remove-item');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const index = event.target.dataset.index;
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                    });
+                });
+            }
+
+            updateCartDisplay();
+
+            proceedToPaymentBtn.addEventListener('click', () => {
+                if (cart.length > 0) {
+                    window.open('payment.html', '_blank');
+                } else {
+                    alert('Your cart is empty. Add items to cart before proceeding to payment.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

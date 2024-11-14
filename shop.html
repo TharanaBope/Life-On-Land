@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="icon" href="img/favicon/favicon.jpeg" type="image/svg+xml">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Spartan", sans-serif;
+        }
+
+        body {
+          width: 100%;
+        }
+
+        main {
+          flex: 1;
+          padding-top: 120px; /* Add padding to avoid header overlap */
+        }
+
+        h1 {
+          font-size: 50px;
+          line-height: 64px;
+          color: #222;
+        }
+
+        h2 {
+          font-size: 46px;
+          line-height: 54px;
+          color: #222;
+        }
+
+        h4 {
+          font-size: 20px;
+          color: #222;
+        }
+
+        h6 {
+          font-weight: 700;
+          font-size: 12px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #465b52;
+          margin: 15px 0 20px 0;
+        }
+
+        .section-p1 {
+          padding: 40px 80px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px 2%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            color: rgb(42, 78, 109);
+        }
+
+        header.scrolling-active {
+            background-color: rgb(19, 17, 17);
+        }
+
+        .navlist {
+            display: flex;
+            margin-left: auto;
+        }
+
+        .navlist a {
+            position: relative;
+            font-size: 20px;
+            color: white;
+            margin-left: 65px;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 3px solid transparent;
+            transition: all 0.55s ease;
+        }
+
+        .navlist a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: #56E161;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .navlist a:hover::after {
+            transform-origin: left;
+            transform: scaleX(1);
+            color: #56E161;
+        }
+
+        .navlist a.active {
+            border-bottom: 3px solid #56E161;
+        }
+
+        .img {
+            height: 75px;
+            width: 75px;
+            border-radius: 10px;
+        }
+
+        #feature {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        #feature .fe-box {
+            width: 180px;
+            text-align: center;
+            padding: 25px 15px;
+            box-shadow: 20px 20px 34px rgba(0,0,0,0.03);
+            border: 1px solid #cce7d0;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        #feature .fe-box img {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #feature .fe-box h6 {
+            display: inline-block;
+            padding: 9px 8px 6px 8px;
+            line-height: 1;
+            border-radius: 4px;
+            color: #088178;
+            background-color: #fddde4;
+        }
+
+        #feature .fe-box:nth-child(2) h6 {
+            background-color: #cdebbc;
+        }
+
+        #feature .fe-box:nth-child(3) h6 {
+            background-color: #d1e8f2;
+        }
+
+        #feature .fe-box:nth-child(4) h6 {
+            background-color: #cdd4f8;
+        }
+
+        #feature .fe-box:nth-child(5) h6 {
+            background-color: #f6dbf6;
+        }
+
+        #feature .fe-box:nth-child(6) h6 {
+            background-color: #fff2e5;
+        }
+
+        #product1 {
+            text-align: center;
+        }
+
+        #product1 .pro-container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        #product1 .pro {
+            width: 23%;
+            min-width: 250px;
+            padding: 10px 12px;
+            border: 1px solid #cce7d0;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 20px 20px 30px rgba(0,0,0,0.02);
+            margin: 15px 0;
+            transition: 0.2s ease;
+            position: relative;
+        }
+
+        #product1 .pro img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        #product1 .pro .des {
+            text-align: start;
+            padding: 10px 0;
+        }
+
+        #product1 .pro .des h5 {
+            padding-top: 7px;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        #product1 .pro .des i {
+            font-size: 12px;
+            color: rgb(243,181,25);
+        }
+
+        #product1 .pro .des h4 {
+            padding-top: 7px;
+            font-size: 15px;
+            font-weight: 700;
+            color:#1a1a1a;
+        }
+
+        button.add-to-cart {
+            background-color: #088178 ;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button.add-to-cart:hover {
+            background-color: #056a5d;
+        }
+
+
+        .footer {
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footerlist {
+            list-style-type: none;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            padding: 25px 3%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .footerlist a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.55s ease;
+            position: relative;
+        }
+
+        .footerlist a::after {
+            content: '';
+            position: absolute;
+            left: 0%;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: #56E161;
+            border-radius: 5px;
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .footerlist a:hover::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        .footerlist a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="home.html"><img src="img/logo/logo.png" class="img" alt="LOGO"></a> 
+        <nav class="navlist">
+            <a href="home.html">HOME</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="shop.html" class="active">SHOP</a>
+            <a href="profile.html">USER PROFILE</a>
+            <a href="feedback.html">FEEDBACK</a>
+            <a href="sitemap.html">SITE MAP</a>
+            <a href="team.html">ABOUT US</a>
+        </nav>
+    </header>
+    
+    <main>
+        <a href="cart.html" style="position: fixed; top: 130px; right: 20px; color: black; font-size: 24px;">
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        </a>
+        <section id="feature" class="section-p1">
+            <div class="fe-box">
+                <img src="img/features/f1.png" alt="">
+                <h6>Free Shipping</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f2.png" alt="">
+                <h6>Online Order</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f3.png" alt="">
+                <h6>Save Money</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f4.png" alt="">
+                <h6>Promotions</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f5.png" alt="">
+                <h6>Happy Sell</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f6.png" alt="">
+                <h6>Support</h6>
+            </div>
+        </section>
+        
+        <section id="product1" class="section-p1">
+            <div class="pro-container">
+                <!-- T-Shirt Products -->
+                <div class="pro">
+                    <img src="img/t-shirts/ts1.webp" alt="">
+                    <div class="des">
+                        <h5>T-Shirt with Horses</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$15</h4>
+                        <button class="add-to-cart" data-name="T-Shirt with Horses" data-price="15">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/t-shirts/ts2.webp" alt="">
+                    <div class="des">
+                        <h5>T-Shirt with Egret birds</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$15</h4>
+                        <button class="add-to-cart" data-name="T-Shirt with Egret birds" data-price="15">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/t-shirts/ts3.webp" alt="">
+                    <div class="des">
+                        <h5>T-Shirt with Cats</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$15</h4>
+                        <button class="add-to-cart" data-name="T-Shirt with Cats" data-price="15">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/t-shirts/ts4.webp" alt="">
+                    <div class="des">
+                        <h5>T-Shirts with Parrots</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$15</h4>
+                        <button class="add-to-cart" data-name="T-Shirts with Parrots" data-price="15">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Shirts Products -->
+                <div class="pro">
+                    <img src="img/shirts/s1.webp" alt="">
+                    <div class="des">
+                        <h5>Badger Shirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$17</h4>
+                        <button class="add-to-cart" data-name="Badger Shirt" data-price="17">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/shirts/s2.webp" alt="">
+                    <div class="des">
+                        <h5>Fox Shirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$17</h4>
+                        <button class="add-to-cart" data-name="Fox Shirt" data-price="17">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/shirts/s3.webp" alt="">
+                    <div class="des">
+                        <h5>Bull Shirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$17</h4>
+                        <button class="add-to-cart" data-name="Bull Shirt" data-price="17">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/shirts/s4.webp" alt="">
+                    <div class="des">
+                        <h5>Panda Shirt</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$17</h4>
+                        <button class="add-to-cart" data-name="Panda Shirt" data-price="17">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Caps Products -->
+                <div class="pro">
+                    <img src="img/caps/c1.webp" alt="">
+                    <div class="des">
+                        <h5>Bear Cap</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$6</h4>
+                        <button class="add-to-cart" data-name="Bear Cap" data-price="6">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/caps/c2.webp" alt="">
+                    <div class="des">
+                        <h5>Elephant Cap</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$6</h4>
+                        <button class="add-to-cart" data-name="Elephant Cap" data-price="6">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/caps/c3.webp" alt="">
+                    <div class="des">
+                        <h5>Hedgehog Cap</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$6</h4>
+                        <button class="add-to-cart" data-name="Hedgehog Cap" data-price="6">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/caps/c4.webp" alt="">
+                    <div class="des">
+                        <h5>Duck Cap</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$6</h4>
+                        <button class="add-to-cart" data-name="Duck Cap" data-price="6">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Bags Products -->
+                <div class="pro">
+                    <img src="img/bags/b1.jpg" alt="">
+                    <div class="des">
+                        <h5>Lion Bag</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$25</h4>
+                        <button class="add-to-cart" data-name="Lion Bag" data-price="25">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/bags/b2.jpg" alt="">
+                    <div class="des">
+                        <h5>Bear Bag</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$25</h4>
+                        <button class="add-to-cart" data-name="Bear Bag" data-price="25">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/bags/b3.jpg" alt="">
+                    <div class="des">
+                        <h5>Hippo Bag</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$25</h4>
+                        <button class="add-to-cart" data-name="Hippo Bag" data-price="25">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="img/bags/b4.jpg" alt="">
+                    <div class="des">
+                        <h5>Panda Bag</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4>$25</h4>
+                        <button class="add-to-cart" data-name="Panda Bag" data-price="25">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <ul class="footerlist">
+            <li><a href="pageeditor_stu_1.html">Isuru Dissanayake</a></li>
+            <li><a href="pageeditor_stu_2.html">Tharana Bopearachchi</a></li>
+            <li><a href="pageeditor_stu_3.html">Akila Senanayake</a></li>
+            <li><a href="pageeditor_stu_4.html">Pasindu Gamage</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const name = event.target.dataset.name;
+                    const price = parseFloat(event.target.dataset.price);
+                    const item = { name, price };
+
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    cart.push(item);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    alert(`${name} has been added to the cart.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
